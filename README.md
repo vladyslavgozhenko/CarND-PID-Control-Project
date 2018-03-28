@@ -1,6 +1,6 @@
 # CarND-PID-Control-Project
 <p align='center'>
-<img src="https://github.com/wiwawo/CarND-PID-Control-Project/blob/master/pid_control.png" width="480" alt="simulator" />
+<img src="https://github.com/wiwawo/CarND-PID-Control-Project/blob/master/video/pid_anime.gif" width="480" alt="simulator" />
 </p>
 
 In this project I will utilize PID-Control method to calculate steering angle for a car.
