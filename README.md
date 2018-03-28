@@ -58,30 +58,30 @@ the coefficient will be decreased and the coefficients value won't be updated.
 
 The Twiddle algorithm in Python:
 
-def twiddle(tol=0.2):
-    p = [0, 0, 0]
-    dp = [1, 1, 1]
-    best_err = err_calc(p)
-    it = 0
-    while sum(dp) > tol:
-        print("Iteration {}, best error = {}".format(it, best_err))
-        for i in range(len(p)):
-            p[i] += dp[i]
-            err_calc(p)
-            if err < best_err:
-                best_err = err
-                dp[i] = 1.1*dp[i]
-            else:
-                p[i] -= 2 * dp[i]
-                err = err_calc(p)
+    def twiddle(tol=0.2):
+        p = [0, 0, 0]
+        dp = [1, 1, 1]
+        best_err = err_calc(p)
+        it = 0
+        while sum(dp) > tol:
+            print("Iteration {}, best error = {}".format(it, best_err))
+            for i in range(len(p)):
+                p[i] += dp[i]
+                err_calc(p)
                 if err < best_err:
                     best_err = err
                     dp[i] = 1.1*dp[i]
                 else:
-                    p[i] += dp[i]
-                    dp[i] = 0.9*dp[i]
-        it += 1
-    return p
+                    p[i] -= 2 * dp[i]
+                    err = err_calc(p)
+                    if err < best_err:
+                        best_err = err
+                        dp[i] = 1.1*dp[i]
+                    else:
+                        p[i] += dp[i]
+                        dp[i] = 0.9*dp[i]
+            it += 1
+        return p
 
 Results of the Twiddle algoritm look something like this:
 <p align='center'>
