@@ -27,20 +27,23 @@ In PID-Control method, the steering angle is calculated using following formula:
 steering_value = -Kp * p_error - Kd * d_error - Ki * i_error,
 
 where:
-    p_error - proportional error, which is equal to the current deviation from the
+  * p_error - proportional error, which is equal to the current deviation from the
 center of a road i.e. p_error = cte;
-    d_error - differential error, which is equal to the difference between cte in the
+  * d_error - differential error, which is equal to the difference between cte in the
 current moment and cte in the previous moment i.e d_error = cte - prev_cte;
-    i_error - integral error is sum of all ctes during the whole time of the algorithm
+  * i_error - integral error is sum of all ctes during the whole time of the algorithm
 execution i.e. i_error += cte;
-    Kp, Kd, Ki are weights(coefficients), that show how important is every error
+  * Kp, Kd, Ki are weights(coefficients), that show how important is every error
 for calculated steering angles;
-    The bigger Kp, the sharper will be turns of the car right away after receiving
+
+   The bigger Kp, the sharper will be turns of the car right away after receiving
 new ctes from sensors, the smaller Kp, the smoother will be turning of the car, therefore I choose Kp = 0.05.
-    The bigger Kd means, that the higher adjustment of the steering angle will be done, after
+
+   The bigger Kd means, that the higher adjustment of the steering angle will be done, after
 the car missed the middle of the road with the steering value -Kp * p_error in the previous moment.
 Kd = 0.9 was chosen to more aggressively steer to the middle of the road.
-    The bigger Ki means, that the regularly misses middle of the road and this error should be taken in the account.
+
+   The bigger Ki means, that the regularly misses middle of the road and this error should be taken in the account.
 Since I was satisfied how the algorithms performs with the chosen Kp and Kd, the value for Ki was not important any more
 and Ki=0.0001 was chosen.
 
